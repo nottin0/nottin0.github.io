@@ -1,0 +1,26 @@
+body {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 2em;
+}
+
+#artists_pictures {
+    display: flexbox;
+    flex-direction: row;
+    align-items: center;
+}
+#chief_keef {
+    visibility: hidden;
+}
+
+#megan {
+    visibility: hidden;
+}
+
+#sexyy_redd {
+    visibility: hidden;
+}
+
+#destroy_boys {
+    visibility: hidden;
+}
