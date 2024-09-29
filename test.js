@@ -55,6 +55,17 @@ function showName() {
   }
 }
 
+// Allows user to enter an embed youtube link and listen/watch to any youtube video they want
+function showFavoriteSong() {
+  const songValue = favsong.value;
+  if (songValue) {
+    document.getElementById(`display_question5`).innerHTML =
+      `<iframe width = "560" height = "315" src="${songValue}" frameborder="0" allowfullscreen></iframe>`;
+  } else {
+    alert(`please enter a embed youtube URL`);
+  }
+}
+
 function clearInput() {
   document.getElementById(`name`).value = ``;
   document.getElementById(`favcar`).value = ``;
@@ -63,4 +74,10 @@ function clearInput() {
   document.getElementById(`display_question2`).innerHTML = ``;
   document.getElementById(`display_question3`).innerHTML = ``;
   document.getElementById(`display_question4`).innerHTML = ``;
+  
+    const allArtists = [`chief_keef`, `megan`, "sexyy_red", "destroy_boys"];
+  allArtists.forEach((artist) => {
+    document.getElementById(artist).style.visibility = "hidden"; // code should hide the photos when the clear button is hit
+  });
+  document.getElementById("display_question5").innerHTML = "";
 }
