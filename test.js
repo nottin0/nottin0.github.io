@@ -2,6 +2,7 @@ const favCar = document.getElementById(`favcar`);
 const favArtists = document.getElementById(`favartists`);
 const name = document.getElementById(`name`);
 const age = document.getElementById(`age`);
+const favsong = document.getElementById(`favsong`);
 
 function showAge() {
   const ageValue = age.value;
@@ -55,9 +56,8 @@ function showName() {
   }
 }
 
-// Allows user to enter an embed youtube link and listen/watch to any youtube video they want
 function showFavoriteSong() {
-  const songValue = favsong.value;
+  const songValue = favsong.value.replace(`/watch?v=`, `/embed/` );
   if (songValue) {
     document.getElementById(`display_question5`).innerHTML =
       `<iframe width = "560" height = "315" src="${songValue}" frameborder="0" allowfullscreen></iframe>`;
@@ -74,10 +74,13 @@ function clearInput() {
   document.getElementById(`display_question2`).innerHTML = ``;
   document.getElementById(`display_question3`).innerHTML = ``;
   document.getElementById(`display_question4`).innerHTML = ``;
-  
-    const allArtists = [`chief_keef`, `megan`, "sexyy_red", "destroy_boys"];
+
+  const allArtists = [`chief_keef`, `megan`, "sexyy_red", "destroy_boys"];
   allArtists.forEach((artist) => {
-    document.getElementById(artist).style.visibility = "hidden"; // code should hide the photos when the clear button is hit
+    document.getElementById(artist).style.visibility = "hidden";
   });
   document.getElementById("display_question5").innerHTML = "";
 }
+
+
+
