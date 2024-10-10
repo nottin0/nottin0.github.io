@@ -57,30 +57,43 @@ function showName() {
 }
 
 function showFavoriteSong() {
-  const songValue = favsong.value.replace(`/watch?v=`, `/embed/` );
+  let songValue = favsong.value.trim();
   if (songValue) {
-    document.getElementById(`display_question5`).innerHTML =
-      `<iframe width = "560" height = "315" src="${songValue}" frameborder="0" allowfullscreen></iframe>`;
+    // Extract video id from different URL formats
+    let videoId = extractYoutubeVideoId(songValue);
+
+    if (videoId) {
+      let embedURL = `https://www.youtube.com/embed/${videoId}`;
+      document.getElementById(`display_question5`).innerHTML =
+        `<iframe width = "560" height = "315" src="${embedURL}" frameborder="0" allowfullscreen></iframe>`;
+    } else {
+      alert(`Please enter a valid embed youtube URL`);
+    }
   } else {
     alert(`please enter a embed youtube URL`);
   }
+}
+
+// Takes a youtube URL and returns the video ID
+function extractYoutubeVideoId(url) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
 }
 
 function clearInput() {
   document.getElementById(`name`).value = ``;
   document.getElementById(`favcar`).value = ``;
   document.getElementById(`age`).value = ``;
+  document.getElementById(`favsong`).value = ``;
   document.getElementById(`display_question1`).innerHTML = ``;
   document.getElementById(`display_question2`).innerHTML = ``;
   document.getElementById(`display_question3`).innerHTML = ``;
   document.getElementById(`display_question4`).innerHTML = ``;
-
+  //TODO: fix code so embed video is removed
+  document.getElementById("display_question5").innerHTML = ``;
   const allArtists = [`chief_keef`, `megan`, "sexyy_red", "destroy_boys"];
   allArtists.forEach((artist) => {
     document.getElementById(artist).style.visibility = "hidden";
   });
-  document.getElementById("display_question5").innerHTML = "";
 }
-
-
-
