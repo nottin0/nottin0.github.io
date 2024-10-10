@@ -90,9 +90,8 @@ function clearInput() {
   document.getElementById(`display_question2`).innerHTML = ``;
   document.getElementById(`display_question3`).innerHTML = ``;
   document.getElementById(`display_question4`).innerHTML = ``;
-  //TODO: fix code so embed video is removed
   document.getElementById("display_question5").innerHTML = ``;
-  const allArtists = [`chief_keef`, `megan`, "sexyy_red", "destroy_boys"];
+  const allArtists = [`chief_keef`, `megan`, "sexyy_redd", "destroy_boys"];
   allArtists.forEach((artist) => {
     document.getElementById(artist).style.visibility = "hidden";
   });
