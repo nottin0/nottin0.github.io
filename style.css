@@ -1,26 +1,43 @@
 body {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-    font-size: 2em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  background-color: #f2f2f2;
 }
 
 #artists_pictures {
-    display: flexbox;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  img {
+    object-fit: cover;
+    width: 25%;
+    height: 150px;
+    margin: 10px;
+  }
+  padding: 20px;
+  margin-bottom: 40px;
 }
 #chief_keef {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 #megan {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 #sexyy_redd {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 #destroy_boys {
-    visibility: hidden;
+  visibility: hidden;
 }
+
+#cat_photo {
+  max-width: 350px;
+  max-height: 350px;
+}
+

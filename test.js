@@ -90,9 +90,38 @@ function clearInput() {
   document.getElementById(`display_question2`).innerHTML = ``;
   document.getElementById(`display_question3`).innerHTML = ``;
   document.getElementById(`display_question4`).innerHTML = ``;
-  document.getElementById("display_question5").innerHTML = ``;
+  document.getElementById(`display_question5`).innerHTML = ``;
+  document.getElementById(`cat_photo`).src = "";
+  document.getElementById(`catphoto`).value = ``;
   const allArtists = [`chief_keef`, `megan`, "sexyy_redd", "destroy_boys"];
   allArtists.forEach((artist) => {
     document.getElementById(artist).style.visibility = "hidden";
   });
+}
+
+// Handles the file upload
+const fileInput = document.getElementById(`catphoto`);
+fileInput.addEventListener(`change`, handleFileUpload);
+
+// function to read the uploaded file
+function handleFileUpload(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const imageUrl = e.target.result;
+      const img = document.getElementById("cat_photo");
+      img.src = imageUrl;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    alert(`Please upload a valid image file`);
+  }
+}
+
+// displays the uploaded file, which should be an image
+function displayImage(dataURL) {
+  const img = document.createElement("img");
+  img.src = dataURL;
+  document.body.appendChild(img);
 }
