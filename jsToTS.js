@@ -102,6 +102,20 @@ function extractYoutubeVideoId(url) {
   return match && match[2].length === 11 ? match[2] : null;
 }
 function clearInput() {
+  var allQuestions = [
+    "display_question1",
+    "display_question2",
+    "display_question3",
+    "display_question4",
+    "display_question5",
+    "display_question6",
+  ];
+  allQuestions.forEach(function (question) {
+    var element = document.getElementById(question);
+    if (element) {
+      element.innerHTML = "";
+    }
+  });
   var nameInput = document.getElementById("name");
   if (nameInput) {
     nameInput.value = "";
@@ -117,6 +131,14 @@ function clearInput() {
   var favSongInput = document.getElementById("favsong");
   if (favSongInput) {
     favSongInput.value = "";
+  }
+  var imgInput = document.getElementById("catphoto");
+  if (imgInput) {
+    imgInput.value = "";
+  }
+  var imgElement = document.getElementById("cat_photo");
+  if (imgElement) {
+    imgElement.src = "";
   }
   var allArtists = ["chief_keef", "megan", "sexyy_redd", "destroy_boys"];
   allArtists.forEach(function (artist) {
