@@ -40,9 +40,17 @@ function showFavoriteArtist() {
       ? void 0
       : _a.text;
   var displayElement = document.getElementById("display_question4");
-  if (displayElement) {
+  // pop up alert if the default option is selected
+  if (artistValue === "none") {
+    displayElement.innerHTML = "";
+    alert("please select an artist");
+  } else {
+    if (displayElement) {
     displayElement.innerHTML = "Favorite Artist: ".concat(artistName);
   }
+
+  }
+
   // List all artist IDs
   var allArtists = ["chief_keef", "megan", "sexyy_redd", "destroy_boys"];
   // Hide all artists first

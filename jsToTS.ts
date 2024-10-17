@@ -38,7 +38,6 @@ function showFavoriteArtist() {
   if (displayElement) {
     displayElement.innerHTML = `Favorite Artist: ${artistName}`;
   }
-
   // List all artist IDs
   const allArtists = [`chief_keef`, `megan`, `sexyy_redd`, `destroy_boys`];
 
