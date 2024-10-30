@@ -3,6 +3,7 @@ const favCar = document.getElementById("favcar");
 const favArtists = document.getElementById("favartists");
 const userName = document.getElementById("name");
 const favSong = document.getElementById("favsong");
+
 function showAge() {
   const ageValue = age === null || age === void 0 ? void 0 : age.value;
   if (ageValue && !isNaN(Number(ageValue))) {
@@ -177,4 +178,34 @@ function displayImage(dataURL) {
   const img = document.createElement("img");
   img.src = dataURL;
   document.body.appendChild(img);
+}
+
+function showResults() {
+  // Get values from inputs
+  const ageValue = document.getElementById("age").value;
+  const carValue = document.getElementById("favcar").value;
+  const artistSelect = document.getElementById("favartists");
+  const artistValue = artistSelect.options[artistSelect.selectedIndex].text;
+  const nameValue = document.getElementById("name").value;
+  const songValue = document.getElementById("favsong").value;
+  const catPhoto = document.getElementById("cat_photo")?.src || '';
+
+  // Validate that all fields are filled
+  if (!ageValue || !carValue || !artistValue || !nameValue || !songValue) {
+    alert("Please fill in all fields before submitting");
+    return;
+  }
+
+  // Store in localStorage
+  localStorage.setItem('results', JSON.stringify({
+    age: ageValue,
+    favoriteCar: carValue,
+    favoriteArtist: artistValue,
+    name: nameValue,
+    favoriteSong: songValue,
+    catphoto: catPhoto
+  }));
+
+  // Redirect to results page
+  window.location.href = 'results.html';
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my website</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="results.html" />
   </head>
   <body>
     <h1>Tell us about yourself</h1>
@@ -16,18 +17,16 @@
     <br />
     <label for="name">What is your Name?: </label>
     <input type="text" id="name" name="name" autocomplete="off" />
-    <button type="button" onclick="showName();">Submit</button>
     <br />
     <!--Second question-->
 
     <label for="favcar">What is your favorite Car?: </label>
     <input type="text" id="favcar" name="favcar" autocomplete="off" />
-    <button type="button" onclick="showFavoriteCar();">Submit</button>
+   
     <br />
 
     <label for="age">How old are you?: </label>
     <input type="number" id="age" name="age" autocomplete="off" />
-    <button type="button" onclick="showAge();">Submit</button>
     <br />
     <label for="favartist">Who is your favorite Artist?: </label>
     <select id="favartists" name="favartists">
@@ -37,14 +36,13 @@
       <option value="destroy_boys">Destroy Boys</option>
       <option value="sexyy_redd">Sexyy Redd</option>
     </select>
-    <button type="submit" onclick="showFavoriteArtist();">Submit</button>
+   
     <br />
     <label for="favsong"
       >What is your favorite Song?<br />
       (please enter a youtube URL)</label
     >
     <input type="url" id="favsong" name="favsong" autocomplete="off" />
-    <button type="button" onclick="showFavoriteSong();">Submit</button>
     <br />
 
     <label for="catphoto">Upload a photo of a cat:</label>
@@ -55,23 +53,13 @@
       accept="image/png, image/jpeg"
     />
 
-    <p id="display_question1"></p>
-    <p id="display_question2"></p>
-    <p id="display_question3"></p>
+    <br />
+    <p>click here to submit</p>
+    <button type="button" onclick="showResults();">Submit</button>
     <!-- container for the formatting of our third question-->
-    <div id="artists_pictures">
-      <img src="/images/Chief-Keef.jpg" id="chief_keef" height="150" />
-      <img src="/images/Megan.jpg" id="megan" height="150" />
-      <img src="/images/redd.jpg" id="sexyy_redd" height="150" />
-      <img src="/images/destroy.jpg" id="destroy_boys" height="150" />
-      <p id="display_question4"></p>
-    </div>
-    <p id="display_question5"></p>
-    <p id="display_question6"></p>
-    <div id="cat">
-      <img id="cat_photo" />
-    </div>
+
     <!-- Change this line to use the compiled JavaScript file -->
     <script src="jsToTS.js"></script>
+    <script src="displayResults.js"></script>
   </body>
 </html>
