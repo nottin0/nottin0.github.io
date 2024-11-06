@@ -1,77 +1,88 @@
 <!doctype html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>my website</title>
+      <link rel="stylesheet" href="style.css" />
+      <link href="results.html" />
+   </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>my website</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="results.html" />
-</head>
+   <body>
+      <h1>Tell us about yourself</h1>
 
-<body>
-  <h1>Tell us about yourself</h1>
+      <!--Our first question - your name-->
 
-  <!--Our first question - your name-->
+      <label for="clear">Click here to clear the form</label>
+      <button type="reset" value="reset" onclick="clearInput();">Clear</button>
+      <br />
+      <label for="name">What is your Name?: </label>
+      <input type="text" id="name" name="name" autocomplete="off" />
+      <button type="button" value="submit" onclick="showName()" ;>
+         Submit
+      </button>
+      <br />
+      <!--Second question-->
 
-  <label for="clear">Click here to clear the form</label>
-  <button type="reset" value="reset" onclick="clearInput();">Clear</button>
-  <br />
-  <label for="name">What is your Name?: </label>
-  <input type="text" id="name" name="name" autocomplete="off" />
-  <button type="button" value="submit" onclick="showName()" ;>Submit</button>
-  <br />
-  <!--Second question-->
+      <label for="favcar">What is your favorite Car?: </label>
+      <input type="text" id="favcar" name="favcar" autocomplete="off" />
+      <button type="button" value="submit" onclick="showFavoriteCar();">
+         Submit
+      </button>
+      <br />
 
-  <label for="favcar">What is your favorite Car?: </label>
-  <input type="text" id="favcar" name="favcar" autocomplete="off" />
-  <button type="button" value="submit" onclick="showFavoriteCar();">Submit</button>
-  <br />
+      <label for="age">How old are you?: </label>
+      <input type="number" id="age" name="age" autocomplete="off" />
+      <button type="button" value="submit" onclick="showAge();">Submit</button>
+      <br />
+      <label for="favartist">Who is your favorite Artist?: </label>
+      <select id="favartists" name="favartists">
+         <option value="none" selected>--Please choose an artist--</option>
+         <option value="chief_keef">Chief Keef</option>
+         <option value="megan">Megan Thee Stallion</option>
+         <option value="destroy_boys">Destroy Boys</option>
+         <option value="sexyy_redd">Sexyy Redd</option>
+      </select>
 
-  <label for="age">How old are you?: </label>
-  <input type="number" id="age" name="age" autocomplete="off" />
-  <button type="button" value="submit" onclick="showAge();">Submit</button>
-  <br />
-  <label for="favartist">Who is your favorite Artist?: </label>
-  <select id="favartists" name="favartists">
-    <option value="none" selected>--Please choose an artist--</option>
-    <option value="chief_keef">Chief Keef</option>
-    <option value="megan">Megan Thee Stallion</option>
-    <option value="destroy_boys">Destroy Boys</option>
-    <option value="sexyy_redd">Sexyy Redd</option>
-  </select>
+      <button type="button" value="submit" onclick="showFavoriteArtist();">
+         Submit
+      </button>
+      <br />
+      <label for="favsong"
+         >What is your favorite Song?<br />
+         (please enter a youtube URL):</label
+      >
+      <input type="url" id="favsong" name="favsong" autocomplete="off" />
+      <button type="button" onclick="showFavoriteSong();">Submit</button>
+      <br />
 
-  <button type="button" value="submit" onclick="showFavoriteArtist();">Submit</button>
-  <br />
-  <label for="favsong">What is your favorite Song?<br />
-    (please enter a youtube URL):</label>
-  <input type="url" id="favsong" name="favsong" autocomplete="off" />
-  <button type="button" onclick=showFavoriteSong();>Submit</button>
-  <br />
+      <label for="catphoto">Upload a photo of a cat:</label>
+      <input
+         type="file"
+         id="catphoto"
+         name="catphoto"
+         accept="image/png, image/jpeg"
+      />
 
-  <label for="catphoto">Upload a photo of a cat:</label>
-  <input type="file" id="catphoto" name="catphoto" accept="image/png, image/jpeg" />
+      <br />
+      <p id="display_question1"></p>
+      <p id="display_question2"></p>
+      <p id="display_question3"></p>
+      <div id="artists_pictures">
+         <img src="images/Chief-Keef.jpg" id="chief_keef" heigh="150" />
+         <img src="images/Megan.jpg" id="megan" height="150" />
+         <img src="images/redd.jpg" id="sexyy_redd" height="150" />
+         <img src="images/destroy.jpg" id="destroy_boys" height="150" />
+         <p id="display_question4"></p>
+      </div>
+      <p id="display_question5"></p>
+      <p id="display_qestion6"></p>
+      <div id="cat">
+         <img id="cat_photo" style="max-width: 100%; height: auto" />
+      </div>
+      <!-- container for the formatting of our third question-->
 
-  <br />
-  <p id="display_question1"></p>
-  <p id="display_question2"></p>
-  <p id="display_question3"></p>
-  <div id="artists_pictures">
-    <img src="images/Chief-Keef.jpg" id="chief_keef" heigh="150" />
-    <img src="images/Megan.jpg" id="megan" height="150" />
-    <img src="images/redd.jpg" id="sexyy_redd" height="150" />
-    <img src="images/destroy.jpg" id="destroy_boys" height="150" />
-    <p id="display_question4"></p>
-  </div>
-  <p id="display_question5"></p>
-  <p id="display_qestion6"></p>
-  <div id="cat">
-    <img id="cat_photo" alt="Cat Photo" style="max-width: 100%; height: auto;">
-  </div>
-  <!-- container for the formatting of our third question-->
-
-  <!-- Change this line to use the compiled JavaScript file -->
-  <script src="jsToTS.js"></script>
-</body>
-
+      <!-- Change this line to use the compiled JavaScript file -->
+      <script src="jsToTS.js"></script>
+   </body>
 </html>
