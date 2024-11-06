@@ -131,6 +131,7 @@ function clearInput() {
     "favsong",
     "catphoto",
     "cat_photo",
+    "cat",
   ];
   allInput.forEach(function (input) {
     const element = document.getElementById(input);
@@ -162,7 +163,7 @@ function handleFileUpload(event) {
     const reader = new FileReader();
     reader.onload = function (e) {
       let _a;
-      const imageUrl = (_a = e.target) === null || t;
+      const imageUrl = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
       const img = document.getElementById("cat_photo");
       if (img) {
         img.src = imageUrl;
@@ -180,32 +181,3 @@ function displayImage(dataURL) {
   document.body.appendChild(img);
 }
 
-function showResults() {
-  // Get values from inputs
-  const ageValue = document.getElementById("age").value;
-  const carValue = document.getElementById("favcar").value;
-  const artistSelect = document.getElementById("favartists");
-  const artistValue = artistSelect.options[artistSelect.selectedIndex].text;
-  const nameValue = document.getElementById("name").value;
-  const songValue = document.getElementById("favsong").value;
-  const catPhoto = document.getElementById("cat_photo")?.src || '';
-
-  // Validate that all fields are filled
-  if (!ageValue || !carValue || !artistValue || !nameValue || !songValue) {
-    alert("Please fill in all fields before submitting");
-    return;
-  }
-
-  // Store in localStorage
-  localStorage.setItem('results', JSON.stringify({
-    age: ageValue,
-    favoriteCar: carValue,
-    favoriteArtist: artistValue,
-    name: nameValue,
-    favoriteSong: songValue,
-    catphoto: catPhoto
-  }));
-
-  // Redirect to results page
-  window.location.href = 'results.html';
-}
