@@ -119,6 +119,7 @@ function clearInput() {
       "display_question4",
       "display_question5",
       "display_question6",
+      "display_question7",
    ];
    allQuestions.forEach(function (question) {
       const element = document.getElementById(question);
@@ -134,6 +135,8 @@ function clearInput() {
       "catphoto",
       "cat_photo",
       "cat",
+      "vid",
+      "video",
    ];
    allInput.forEach(function (input) {
       const element = document.getElementById(input);
@@ -187,4 +190,39 @@ function displayImage(dataURL) {
    const img = document.createElement("img");
    img.src = dataURL;
    document.body.appendChild(img);
+}
+
+const videoInput = document.getElementById("video");
+videoInput.addEventListener("change", handleVideoUpload);
+
+function handleVideoUpload(event) {
+   let _a;
+   _b;
+   const file =
+      (_b =
+         (_a = event.target) === null || _a === void 0 ? void 0 : _a.files) ===
+         null || _b === void 0
+         ? void 0
+         : _b[0];
+   if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+         let _a;
+         const videoUrl =
+            (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+         const vid = document.getElementById("video");
+         if (vid) {
+            vid.src = videoUrl;
+         }
+      };
+      reader.readAsDataURL(file);
+   } else {
+      alert("Please upload a valid video file");
+   }
+}
+
+function displayVideo(dataURL) {
+   const vid = document.createElement("vid");
+   vid.src = dataURL;
+   document.body.appendChild(vid);
 }
